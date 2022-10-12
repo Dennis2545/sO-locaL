@@ -1,0 +1,114 @@
+<head>
+    <script>
+    
+    var player, iframe;
+    var $ = document.querySelector.bind(document);
+    
+    // init player
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '200',
+        width: '300',
+        videoId: '-vDMu1kb2CE',
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    }
+    
+    // when ready, wait for clicks
+    function onPlayerReady(event) {
+      var player = event.target;
+      iframe = $('#player');
+      console.log(iframe);
+      setupListener(); 
+    }
+    
+    function setupListener (){
+    $('button').addEventListener('click', playFullscreen);
+    }
+    
+    function playFullscreen (){
+      player.playVideo();//won't work on mobile
+      
+      var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;
+      if (requestFullScreen) {
+        requestFullScreen.bind(iframe)();
+      }
+    }
+    
+    </script>
+
+    
+    <style>
+    html {
+      padding: 1em;
+      
+    }
+    button {
+      width: 300px;
+      height: 100px;
+      margin-bottom: 1em;
+      color: #21f006;
+      background-color: rgb(92, 252, 0);
+      text-align: start;
+      font-size: larger;
+    }
+    body {
+color: #536482;
+background-color: black;
+}
+
+div {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+img {
+position: absolute;
+object-fit: cover;
+height: 100%;
+width: 100%;
+}
+
+h4 {
+position: relative;
+text-align: start;
+margin: 0;
+background-color: rgb(10, 10, 10);
+opacity: 0.7;
+position: absolute;
+object-fit: cover;
+height: 100%;
+width: 100%;
+
+}
+
+    </style>
+    
+    </head>
+    
+    <h1 style="background-color:hsl(133, 100%, 56%);">CLICK ON "PRESS HERE TO PLAY" FOR BETTER VIEW</h1>
+    <ol>
+      <li>Click on [play fullscreen]</li>
+      <i>Click on the fullscreen button in player to exit fullscreen</i>
+    </ol>
+    
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <button id="#"><h6 style="color: red;">PRESS HERE TO PLAY</h6></button><br>
+    <div id="player"></div>
+
+    
+     <h2 style="font-size: 10;"><i>(you can also watch the film on youtube on the bottom right corner when in fullscreen mode and more video from the source via youtube to support channel source)</i></h2>
+    <h3 style="background-color: green;");>GO TO HOMEPAGE</h3>
+    <div><picture><img srcset="../picturesVideoThumbnails/soulb.jpg" alt="">
+    </picture>
+  <h4 style="color: rgb(248, 0, 0);">OVERVIEW <br>A Kenyan boy goes on a strange journey to return his father's soul.
+    <br>Directors
+    <br>Hawa EssumanTom Tykwer(supervising director)
+    <br>Writer
+    <br>Billy Kahora
+    <br> Stars
+    <br>Samson OdhiamboLeila Dayan OpouKrysteen Savane</h4>
+  </div>
+    

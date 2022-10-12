@@ -1,0 +1,110 @@
+<head>
+    <script>
+    
+    var player, iframe;
+    var $ = document.querySelector.bind(document);
+    
+    // init player
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '200',
+        width: '300',
+        videoId: 'ZmLHUFOuPds',
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    }
+    
+    // when ready, wait for clicks
+    function onPlayerReady(event) {
+      var player = event.target;
+      iframe = $('#player');
+      console.log(iframe);
+      setupListener(); 
+    }
+    
+    function setupListener (){
+    $('button').addEventListener('click', playFullscreen);
+    }
+    
+    function playFullscreen (){
+      player.playVideo();//won't work on mobile
+      
+      var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;
+      if (requestFullScreen) {
+        requestFullScreen.bind(iframe)();
+      }
+    }
+    
+    </script>
+
+    
+    <style>
+    html {
+      padding: 1em;
+      
+    }
+    button {
+      width: 300px;
+      height: 100px;
+      margin-bottom: 1em;
+      color: #21f006;
+      background-color: rgb(207, 169, 0);
+      text-align: start;
+      font-size: larger;
+    }
+    body {
+color: #536482;
+background-color: black;
+}
+
+div {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+img {
+position: absolute;
+object-fit: cover;
+height: 100%;
+width: 100%;
+}
+
+h5 {
+position: relative;
+text-align: start;
+margin: 0;
+background-color: rgb(129, 129, 129);
+opacity: 0.6;
+}
+    </style>
+    
+    </head>
+    
+    <h1 style="background-color:hsl(133, 100%, 56%);">CLICK ON "PRESS HERE TO PLAY" FOR BETTER VIEW</h1>
+    <ol>
+      <li>Click on [play fullscreen]</li>
+      <i>Click on the fullscreen button in player to exit fullscreen</i>
+    </ol>
+    
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <button id="#">PRESS HERE TO PLAY</button><br>
+    <div id="player"></div>
+
+    
+     <h2 style="font-size: 10;"><i>(you can also watch the film on youtube on the bottom right corner when in fullscreen mode and more video from the source via youtube to support channel source)</i></h2>
+    <h3 style="background-color: green;");>GO TO HOMEPAGE</h3>
+    <div><picture><img srcset="../picturesVideoThumbnails/nairobi24.jpg" alt="">
+    </picture>
+  <h5>OVERVIEW</h5>
+  <h5 style="color: rgb(0, 45, 248);">A young, aspiring actor from upcountry Kenya dreams of becoming a success in the big city. In pursuit of this and to the chagrin of his brother and parents, he makes his way to Nairobi:the city of opportunity.
+     <b>Director
+    David 'Tosh' Gitonga
+    Writers
+    Billy Kahora(writing supervisor)Potash Charles Matathia(script writer)Samuel Munene(script writer)
+    Stars
+    Joseph WairimuOlwenya MainaNancy Wanjiku Karanja</b></h5>
+
+  </div>
+    
